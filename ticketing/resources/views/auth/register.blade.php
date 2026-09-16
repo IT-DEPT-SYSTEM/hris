@@ -9,10 +9,8 @@
 
     <title>Register - IT Ticketing System</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -350,7 +348,6 @@
             }
 
         }
-
     </style>
 
 </head>
@@ -358,316 +355,299 @@
 
 <body>
 
-<div class="register-page">
+    <div class="register-page">
 
-    <div class="register-wrapper">
+        <div class="register-wrapper">
 
 
-        <!-- =========================
+            <!-- =========================
              BRAND
         ========================= -->
 
-        <div class="brand">
+            <div class="brand">
 
-            <div class="brand-logo">
-                IT
+                <div class="brand-logo">
+                    IT
+                </div>
+
+                <h1 class="brand-title">
+                    IT Ticketing System
+                </h1>
+
+                <p class="brand-subtitle">
+                    Create your account to submit and manage tickets
+                </p>
+
             </div>
 
-            <h1 class="brand-title">
-                IT Ticketing System
-            </h1>
 
-            <p class="brand-subtitle">
-                Create your account to submit and manage tickets
-            </p>
-
-        </div>
-
-
-        <!-- =========================
+            <!-- =========================
              REGISTER CARD
         ========================= -->
 
-        <div class="register-card">
+            <div class="register-card">
 
-            <h2 class="card-title">
-                Create an account
-            </h2>
+                <h2 class="card-title">
+                    Create an account
+                </h2>
 
-            <p class="card-description">
-                Register your account to access the IT Helpdesk.
-            </p>
-
-
-            <form method="POST" action="{{ route('register') }}">
-
-                @csrf
+                <p class="card-description">
+                    Register your account to access the IT Helpdesk.
+                </p>
 
 
-                <!-- =========================
+                <form method="POST" action="{{ route('register') }}">
+
+                    @csrf
+
+
+                    <!-- =========================
                      NAME
                 ========================= -->
 
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <label
-                        for="name"
-                        class="form-label"
-                    >
-                        Name
-                    </label>
+                        <label
+                            for="name"
+                            class="form-label">
+                            Name
+                        </label>
 
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        value="{{ old('name') }}"
-                        class="form-input"
-                        placeholder="Enter your full name"
-                        required
-                        autofocus
-                        autocomplete="name"
-                    >
+                        <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            value="{{ old('name') }}"
+                            class="form-input"
+                            placeholder="Enter your full name"
+                            required
+                            autofocus
+                            autocomplete="name">
 
-                    @error('name')
+                        @error('name')
                         <div class="error-message">
                             {{ $message }}
                         </div>
-                    @enderror
+                        @enderror
 
-                </div>
+                    </div>
 
 
-                <!-- =========================
+                    <!-- =========================
                      COMPANY EMAIL
                 ========================= -->
 
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <label
-                        for="email"
-                        class="form-label"
-                    >
-                        Company Email
-                    </label>
+                        <label
+                            for="email"
+                            class="form-label">
+                            Company Email
+                        </label>
 
-                    <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        value="{{ old('email') }}"
-                        class="form-input"
-                        placeholder="Enter your company email"
-                        required
-                        autocomplete="username"
-                    >
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            value="{{ old('email') }}"
+                            class="form-input"
+                            placeholder="Enter your company email"
+                            required
+                            autocomplete="username">
 
-                    @error('email')
+                        @error('email')
                         <div class="error-message">
                             {{ $message }}
                         </div>
-                    @enderror
+                        @enderror
 
-                </div>
+                    </div>
 
 
-                <!-- =========================
+                    <!-- =========================
                      DEPARTMENT
                 ========================= -->
 
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <label
-                        for="department_id"
-                        class="form-label"
-                    >
-                        Department
-                    </label>
+                        <label
+                            for="department_id"
+                            class="form-label">
+                            Department
+                        </label>
 
-                    <select
-                        id="department_id"
-                        name="department_id"
-                        class="form-select"
-                        required
-                    >
+                        <select
+                            id="department_id"
+                            name="department_id"
+                            class="form-select"
+                            required>
 
-                        <option value="">
-                            Select Department
-                        </option>
+                            <option value="">
+                                Select Department
+                            </option>
 
-                        @foreach($departments as $department)
+                            @foreach($departments as $department)
 
                             <option
                                 value="{{ $department->id }}"
-                                {{ old('department_id') == $department->id ? 'selected' : '' }}
-                            >
+                                {{ old('department_id') == $department->id ? 'selected' : '' }}>
                                 {{ $department->name }}
                             </option>
 
-                        @endforeach
+                            @endforeach
 
-                    </select>
+                        </select>
 
-                    @error('department_id')
+                        @error('department_id')
                         <div class="error-message">
                             {{ $message }}
                         </div>
-                    @enderror
+                        @enderror
 
-                </div>
+                    </div>
 
 
-                <!-- =========================
+                    <!-- =========================
                      PASSWORD
                 ========================= -->
 
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <label
-                        for="password"
-                        class="form-label"
-                    >
-                        Password
-                    </label>
+                        <label
+                            for="password"
+                            class="form-label">
+                            Password
+                        </label>
 
-                    <div class="password-wrapper">
+                        <div class="password-wrapper">
 
-                        <input
-                            id="password"
-                            type="password"
-                            name="password"
-                            class="form-input"
-                            placeholder="Create a password"
-                            required
-                            autocomplete="new-password"
-                        >
+                            <input
+                                id="password"
+                                type="password"
+                                name="password"
+                                class="form-input"
+                                placeholder="Create a password"
+                                required
+                                autocomplete="new-password">
 
-                        <button
-                            type="button"
-                            class="password-toggle"
-                            onclick="togglePassword('password', this)"
-                        >
-                            Show
-                        </button>
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('password', this)">
+                                Show
+                            </button>
 
-                    </div>
+                        </div>
 
-                    @error('password')
+                        @error('password')
                         <div class="error-message">
                             {{ $message }}
                         </div>
-                    @enderror
-
-                </div>
-
-
-                <!-- =========================
-                     CONFIRM PASSWORD
-                ========================= -->
-
-                <div class="form-group">
-
-                    <label
-                        for="password_confirmation"
-                        class="form-label"
-                    >
-                        Confirm Password
-                    </label>
-
-                    <div class="password-wrapper">
-
-                        <input
-                            id="password_confirmation"
-                            type="password"
-                            name="password_confirmation"
-                            class="form-input"
-                            placeholder="Confirm your password"
-                            required
-                            autocomplete="new-password"
-                        >
-
-                        <button
-                            type="button"
-                            class="password-toggle"
-                            onclick="togglePassword('password_confirmation', this)"
-                        >
-                            Show
-                        </button>
+                        @enderror
 
                     </div>
 
-                </div>
+
+                    <!-- =========================
+                     CONFIRM PASSWORD
+                ========================= -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="password_confirmation"
+                            class="form-label">
+                            Confirm Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                id="password_confirmation"
+                                type="password"
+                                name="password_confirmation"
+                                class="form-input"
+                                placeholder="Confirm your password"
+                                required
+                                autocomplete="new-password">
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('password_confirmation', this)">
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
 
 
-                <!-- =========================
+                    <!-- =========================
                      REGISTER
                 ========================= -->
 
-                <button
-                    type="submit"
-                    class="register-button"
-                >
-                    CREATE ACCOUNT
-                </button>
+                    <button
+                        type="submit"
+                        class="register-button">
+                        CREATE ACCOUNT
+                    </button>
 
 
-                <!-- =========================
+                    <!-- =========================
                      LOGIN
                 ========================= -->
 
-                <div class="login-section">
+                    <div class="login-section">
 
-                    <p class="login-text">
+                        <p class="login-text">
 
-                        Already have an account?
+                            Already have an account?
 
-                        <a
-                            href="{{ route('login') }}"
-                            class="login-link"
-                        >
-                            Log in
-                        </a>
+                            <a
+                                href="{{ route('login') }}"
+                                class="login-link">
+                                Log in
+                            </a>
 
-                    </p>
+                        </p>
 
-                </div>
+                    </div>
 
-            </form>
+                </form>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
 
-
-<!-- =========================
+    <!-- =========================
      PASSWORD SCRIPT
 ========================= -->
 
-<script>
+    <script>
+        function togglePassword(inputId, button) {
 
-function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
 
-    const input = document.getElementById(inputId);
+            if (input.type === 'password') {
 
-    if (input.type === 'password') {
+                input.type = 'text';
 
-        input.type = 'text';
+                button.textContent = 'Hide';
 
-        button.textContent = 'Hide';
+            } else {
 
-    } else {
+                input.type = 'password';
 
-        input.type = 'password';
+                button.textContent = 'Show';
 
-        button.textContent = 'Show';
+            }
 
-    }
-
-}
-
-</script>
+        }
+    </script>
 
 </body>
 

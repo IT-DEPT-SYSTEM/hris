@@ -12,8 +12,8 @@
     <title>{{ config('app.name', 'IT Ticketing System') }}</title>
 
     @vite([
-        'resources/css/app.css',
-        'resources/js/app.js'
+    'resources/css/app.css',
+    'resources/js/app.js'
     ])
 
 </head>
@@ -27,22 +27,22 @@
     {{-- Optional Header --}}
     @isset($header)
 
-        <header style="
+    <header style="
             background:#ffffff;
             border-bottom:1px solid #e5e7eb;
         ">
 
-            <div style="
+        <div style="
                 max-width:1280px;
                 margin:0 auto;
                 padding:20px 24px;
             ">
 
-                {{ $header }}
+            {{ $header }}
 
-            </div>
+        </div>
 
-        </header>
+    </header>
 
     @endisset
 
